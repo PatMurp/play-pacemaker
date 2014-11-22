@@ -1,5 +1,6 @@
 package parsers;
 
+import models.Activity;
 import models.User;
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
@@ -7,6 +8,7 @@ import flexjson.JSONSerializer;
 public class JsonParser
 {
   private static JSONSerializer  userSerializer     = new JSONSerializer();
+  private static JSONSerializer activitySerializer = new JSONSerializer();
 
   public static User renderUser(String json)
   {
@@ -16,5 +18,15 @@ public class JsonParser
   public static String renderUser(Object obj)
   {
     return userSerializer.serialize(obj);
+  }
+  
+  public static Activity renderActivity(String json)
+  {
+    return new JSONDeserializer<Activity>().deserialize(json, Activity.class);
+  }
+  
+  public static String renderActivity(Object obj)
+  {
+    return activitySerializer.serialize(obj);
   }
 }

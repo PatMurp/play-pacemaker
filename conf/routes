@@ -15,3 +15,11 @@ POST    /api/users                  controllers.PacemakerAPI.createUser()
 GET    /api/users/:id               controllers.PacemakerAPI.user(id: Long)
 DELETE /api/users/:id               controllers.PacemakerAPI.deleteUser(id: Long)
 PUT    /api/users/:id               controllers.PacemakerAPI.updateUser(id: Long)
+
+GET     /api/activities             controllers.PacemakerAPI.activities()
+DELETE  /api/activities             controllers.PacemakerAPI.deleteAllActivities()
+POST    /api/activities             controllers.PacemakerAPI.createActivity()
+
+GET    /api/activities/:id          controllers.PacemakerAPI.activity(id: Long)
+DELETE /api/activities/:id          controllers.PacemakerAPI.deleteActivity(id: Long)
+PUT    /api/activities/:id          controllers.PacemakerAPI.updateActivity(id: Long)
