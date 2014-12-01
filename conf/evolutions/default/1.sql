@@ -8,8 +8,6 @@ create table activity (
   type                      varchar(255),
   location                  varchar(255),
   distance                  double,
-  starttime                 varchar(255),
-  duration                  varchar(255),
   constraint pk_activity primary key (id))
 ;
 

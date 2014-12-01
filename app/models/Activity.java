@@ -20,20 +20,17 @@ public class Activity extends Model
   public String type;
   public String location;
   public double distance;
-  public String starttime;
-  public String duration;
+
   
   public Activity()
   {
   }
 
-  public Activity(String type, String location, double distance, String starttime, String duration)
+  public Activity(String type, String location, double distance)
   {
     this.type = type;
     this.location = location;
     this.distance = distance;
-    this.starttime = starttime;
-    this.duration = duration;
   }
   
   public void update (Activity activity)
@@ -41,8 +38,6 @@ public class Activity extends Model
     this.type = activity.type;
     this.location = activity.location;
     this.distance = activity.distance;
-    this.starttime = activity.starttime;
-    this.duration = activity.duration;
   }
   
   public String toString()
@@ -50,9 +45,7 @@ public class Activity extends Model
     return Objects.toStringHelper(this)
         .add("Type", type)
         .add("Location", location)
-        .add("Distance", distance)
-        .add("Start Time", starttime)
-        .add("Duration", duration).toString();
+        .add("Distance", distance).toString();
   }
   
   @Override
@@ -63,9 +56,7 @@ public class Activity extends Model
       final Activity other = (Activity) obj;
       return Objects.equal(type, other.type)
           && Objects.equal(location, other.location)
-          && Objects.equal(distance, other.distance)
-          && Objects.equal(starttime, other.starttime)
-          && Objects.equal(duration, duration);
+          && Objects.equal(distance, other.distance);
     }
     else
     {

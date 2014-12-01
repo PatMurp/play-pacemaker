@@ -1,5 +1,8 @@
 package parsers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import models.Activity;
 import models.User;
 import flexjson.JSONDeserializer;
@@ -7,8 +10,8 @@ import flexjson.JSONSerializer;
 
 public class JsonParser
 {
-  private static JSONSerializer  userSerializer     = new JSONSerializer();
-  private static JSONSerializer activitySerializer = new JSONSerializer();
+  private static JSONSerializer  userSerializer     = new JSONSerializer().exclude("class");
+  private static JSONSerializer activitySerializer = new JSONSerializer().exclude("class");
 
   public static User renderUser(String json)
   {
@@ -18,6 +21,11 @@ public class JsonParser
   public static String renderUser(Object obj)
   {
     return userSerializer.serialize(obj);
+  }
+
+  public static List<User> renderUsers(String json)
+  {
+    return new JSONDeserializer<ArrayList<User>>().use("values", User.class).deserialize(json);
   }
   
   public static Activity renderActivity(String json)
