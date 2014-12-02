@@ -1,1 +1,0 @@
-web: target/universal/stage/bin/pacemakerplay -Dhttp.port=${PORT} -Dplay.modules.evolutions.autoApply=true -Ddb.default.driver=org.postgresql.Driver -Ddb.default.url=${DATABASE_URL}
