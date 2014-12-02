@@ -7,7 +7,7 @@ create table activity (
   id                        bigint not null,
   type                      varchar(255),
   location                  varchar(255),
-  distance                  double,
+  distance                  float,
   constraint pk_activity primary key (id))
 ;
 
@@ -29,13 +29,9 @@ create sequence my_user_seq;
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+drop table if exists activity cascade;
 
-drop table if exists activity;
-
-drop table if exists my_user;
-
-SET REFERENTIAL_INTEGRITY TRUE;
+drop table if exists my_user cascade;
 
 drop sequence if exists activity_seq;
 
