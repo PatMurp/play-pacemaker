@@ -28,5 +28,11 @@ public class Application extends Controller {
       user.save();
       return redirect ("/");
     }
+    
+    public static Result showUser(Long id)
+    {
+      User user = User.findById(id);
+      return ok(showuser.render(user));
+    }
 
 }

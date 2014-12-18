@@ -14,7 +14,7 @@
 			 <tbody>
 			 	@for(i <- 0 until users.size) {
 			  <tr>
-			    <td>@users(i).firstname</td>
+			    <td><a href="/users/showuser/@users(i).id">@users(i).firstname</a></td>
 			    <td>@users(i).lastname</td>
 			  </tr>
 			  }
