@@ -30,11 +30,17 @@ public class JsonParser
   
   public static Activity renderActivity(String json)
   {
-    return new JSONDeserializer<Activity>().deserialize(json, Activity.class);
+    Activity activity = new JSONDeserializer<Activity>().deserialize(json, Activity.class);
+    return activity;
   }
   
   public static String renderActivity(Object obj)
   {
     return activitySerializer.serialize(obj);
+  }
+  
+  public static List<Activity> renderActivities (String json)
+  {
+    return new JSONDeserializer<ArrayList<Activity>>().use("values", Activity.class).deserialize(json);
   }
 }

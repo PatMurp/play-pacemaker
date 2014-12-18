@@ -5,6 +5,7 @@
 
 create table activity (
   id                        bigint not null,
+  user_id                   bigint not null,
   type                      varchar(255),
   location                  varchar(255),
   distance                  float,
@@ -24,6 +25,8 @@ create sequence activity_seq;
 
 create sequence my_user_seq;
 
+alter table activity add constraint fk_activity_my_user_1 foreign key (user_id) references my_user (id);
+create index ix_activity_my_user_1 on activity (user_id);
 
 
 

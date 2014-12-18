@@ -1,7 +1,5 @@
 package models;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -33,19 +31,20 @@ public class Activity extends Model
     this.distance = distance;
   }
   
-  public void update (Activity activity)
-  {
-    this.type = activity.type;
-    this.location = activity.location;
-    this.distance = activity.distance;
-  }
+//  public void update (Activity activity)
+//  {
+//    this.type = activity.type;
+//    this.location = activity.location;
+//    this.distance = activity.distance;
+//  }
   
   public String toString()
   {
-    return Objects.toStringHelper(this)
-        .add("Type", type)
-        .add("Location", location)
-        .add("Distance", distance).toString();
+    return Objects.toStringHelper(this).addValue(id)
+                                       .addValue(type)
+                                       .addValue(location)
+                                       .addValue(distance)
+                                       .toString();
   }
   
   @Override
@@ -64,22 +63,15 @@ public class Activity extends Model
     }
   }
   
+  @Override  
+  public int hashCode()  
+  {  
+     return Objects.hashCode(this.id, this.type, this.location, this.distance);  
+  }
+  
   public static Activity findById(Long id)
   {
     return find.where().eq("id", id).findUnique();
-  }
-  
-  public static List<Activity> findAll()
-  {
-    return find.all();
-  }
-  
-  public static void deleteAll()
-  {
-    for (Activity activity : Activity.findAll())
-    {
-      activity.delete();
-    }
   }
   
   public static Model.Finder<String, Activity> find = new Model.Finder<String, Activity>(String.class, Activity.class);
