@@ -134,7 +134,7 @@ public class PacemakerAPI extends Controller
         Activity updatedActivity = renderActivity(request().body().asJson().toString());
         activity.distance = updatedActivity.distance;
         activity.location = updatedActivity.location;
-        activity.type = updatedActivity.type;
+        activity.kind = updatedActivity.kind;
         
         activity.save();
         return ok(renderActivity(updatedActivity));

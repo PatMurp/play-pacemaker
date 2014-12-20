@@ -15,7 +15,7 @@ public class Activity extends Model
   @Id
   @GeneratedValue
   public Long id;
-  public String type;
+  public String kind;
   public String location;
   public double distance;
 
@@ -26,7 +26,7 @@ public class Activity extends Model
 
   public Activity(String type, String location, double distance)
   {
-    this.type = type;
+    this.kind = type;
     this.location = location;
     this.distance = distance;
   }
@@ -41,7 +41,7 @@ public class Activity extends Model
   public String toString()
   {
     return Objects.toStringHelper(this).addValue(id)
-                                       .addValue(type)
+                                       .addValue(kind)
                                        .addValue(location)
                                        .addValue(distance)
                                        .toString();
@@ -53,7 +53,7 @@ public class Activity extends Model
     if (obj instanceof Activity)
     {
       final Activity other = (Activity) obj;
-      return Objects.equal(type, other.type)
+      return Objects.equal(kind, other.kind)
           && Objects.equal(location, other.location)
           && Objects.equal(distance, other.distance);
     }
@@ -66,7 +66,7 @@ public class Activity extends Model
   @Override  
   public int hashCode()  
   {  
-     return Objects.hashCode(this.id, this.type, this.location, this.distance);  
+     return Objects.hashCode(this.id, this.kind, this.location, this.distance);  
   }
   
   public static Activity findById(Long id)
