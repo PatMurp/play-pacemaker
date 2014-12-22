@@ -1,9 +1,24 @@
 @()
 
-<nav class="ui inverted menu">
-  <div class="header item"> <a href="/"> Pacemaker </a> </div>
-  <div class="right menu">
-    <a class="item" href="/signup"> Signup</a>
-    <a class="item" href="/login">  Login</a>
-  </div>
-</nav>   
+@activeLink(currentPath:String) = @{
+if(request.path.equals(currentPath)) "active"
+}
+
+<div class="sticky">
+   <nav class="top-bar" data-topbar>
+     <ul class="title-area">
+       <li class="name">
+         <h1><a href="/">Pacemaker</a></h1>
+       </li>
+       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+     </ul>
+     <section class="top-bar-section">
+       <ul class="right">
+         <li class="divider"></li>
+         <li class="@activeLink("/signup")"><a href="/signup">Signup</a></li>
+         <li class="divider"></li>
+         <li class="@activeLink("/login")"><a href="/login">Login</a></li>
+       </ul>
+     </section>
+   </nav>
+ </div>   

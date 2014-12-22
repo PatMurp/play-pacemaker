@@ -20,7 +20,7 @@ users:
         password:   secret   
 
     - !!models.User
-        email:      lisae@simpson.com
+        email:      lisa@simpson.com
         firstname:  lisa
         lastname:   simpson        
         password:   secret

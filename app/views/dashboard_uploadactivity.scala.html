@@ -1,41 +1,22 @@
 @()
 
 @main("Add User") {
-
-  <nav class="ui inverted menu">
-    <div class="header item"> <a href="/"> Pacemaker </a> </div>
-    <div class="right menu">
-      <a class="item" href="/dashboard"> Dashboard</a>
-      <a class="active item" href="/upload">  Upload</a>
-      <a class="item" href="/logout">  Logout</a>
-    </div>
-  </nav>  
-  
- <section class="ui raised segment">
-   <div class="ui grid">
-     <aside class="ui six wide column">
-       <img src="@routes.Assets.at("images/pacemaker.jpg")" class="ui medium image">
-     </aside>
-     <div class="ui ten wide column fluid form">
-       <div class="ui stacked segment">
-         <form action="/submitactivity" method="POST">
-           <h3 class="ui header">Enter Activity Details: </h3>
-           <div class="field">
-             <label>Type</label>
-             <input type="text" name="kind">
-           </div>
-           <div class="field">
-             <label>Location</label>
-             <input type="text" name="location">
-           </div>
-         <div class="field">
-             <label>Distance</label>
-             <input type="number" name="distance">
-           </div>           
-           <button class="ui blue submit button"> Upload </button>
-         </form>
-       </div>
-     </div>
-   </div>
-</section>
+	@dashboard_menu()
+   
+ 
+	<div class="main">
+		<div class="wrapper">
+			<div id="login" class="row" style="margin: auto">
+				<form action="/submitactivity" method="POST">
+					<div class="large-12 columns text-center">
+						<h3 class="text-center">Enter Activity Details:</h3>
+				    <input type="text" placeholder="Activity type:" class="no-radius" name="kind" />
+				    <input type="text" placeholder="Activity location:" class="no-radius" name="location" />
+				    <input type="number" placeholder="Distance in km:" class="no-radius" name="distance" />
+				    <button  class="button small border-radius-bottom" style="width: 100%">Upload Activity</button>
+					 </div>
+				</form>
+			</div>
+		</div>
+	</div>
 }

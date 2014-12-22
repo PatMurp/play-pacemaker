@@ -1,5 +1,6 @@
 package models;
 
+import static com.google.common.base.Objects.toStringHelper;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -40,7 +41,7 @@ public class Activity extends Model
   
   public String toString()
   {
-    return Objects.toStringHelper(this).addValue(id)
+    return toStringHelper(this).addValue(id)
                                        .addValue(kind)
                                        .addValue(location)
                                        .addValue(distance)
