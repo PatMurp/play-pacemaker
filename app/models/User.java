@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
-
 import play.db.ebean.*;
 
 import com.google.common.base.Objects;
@@ -95,4 +94,6 @@ public class User extends Model
   } 
 
   public static Model.Finder<String, User> find = new Model.Finder<String, User>(String.class, User.class);
+  
+  
 }

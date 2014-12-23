@@ -10,9 +10,10 @@
 				<form action="/submitactivity" method="POST">
 					<div class="large-12 columns text-center">
 						<h3 class="text-center">Enter Activity Details:</h3>
-				    <input type="text" placeholder="Activity type:" class="no-radius" name="kind" />
-				    <input type="text" placeholder="Activity location:" class="no-radius" name="location" />
-				    <input type="number" placeholder="Distance in km:" class="no-radius" name="distance" />
+				    <input type="text" placeholder="Activity type:" class="no-radius" name="kind" required/>
+				    <input type="text" placeholder="Activity location:" class="no-radius" name="location" required/>
+				    @* no minus numbers, minimum value is 100 metres*@
+				    <input type="number" placeholder="Distance in km: Min value = 0.1:" class="no-radius" name="distance" min="0.1" required/>
 				    <button  class="button small border-radius-bottom" style="width: 100%">Upload Activity</button>
 					 </div>
 				</form>

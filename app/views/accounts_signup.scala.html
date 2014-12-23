@@ -1,18 +1,20 @@
-@()
 
 @main("Welcome to Pacemaker") {
   @welcome_menu()
 
 	<div class="main">
 		<div class="wrapper">
+		
 			<div id="login" class="row" style="margin: auto">
 				<form action="/register" method="POST">
 					<div class="large-12 columns text-center">
 						<h3 class="text-center">Signup to Pacemaker</h3>
-				    <input type="text" placeholder="First Name" class="border-radius-top" name="firstname"/>
-				    <input type="text" placeholder="Last Name" class="no-radius" name="lastname" />
-				    <input type="text" placeholder="Email" class="no-radius" name="email" />
-				    <input type="password" placeholder="Password" class="no-radius" name="password" />
+						
+						
+				    <input type="text" placeholder="First Name" class="border-radius-top" name="firstname" required/>
+				    <input type="text" placeholder="Last Name" class="no-radius" name="lastname" required/>
+				    <input type="email" placeholder="Email" class="no-radius" name="email"  required/>
+				    <input type="password" placeholder="Password" class="no-radius" name="password" required/>
 				    <button  class="button small border-radius-bottom" style="width: 100%">Register</button>
 					 </div>
 				</form>

@@ -62,4 +62,13 @@ public class Accounts extends Controller
     }
   }
   
+//  public String validate()
+//  {
+//    if (authenticate(User.email, User.password) == null)
+//    {
+//      return "Invalid email or password";
+//    }
+//    return null;
+//  }
+  
 }
