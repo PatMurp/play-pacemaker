@@ -10,6 +10,7 @@ public class Dashboard extends Controller
 {
   private static final Form<Activity> activityForm = Form.form(Activity.class);
   
+  @Security.Authenticated(Secured.class)
   public static Result index()
   {
     String email = session().get("email");
@@ -17,6 +18,7 @@ public class Dashboard extends Controller
     return ok(dashboard_main.render(user.activities));
   }
   
+  @Security.Authenticated(Secured.class)
   public static Result uploadActivityForm()
   {
     return ok(dashboard_uploadactivity.render());

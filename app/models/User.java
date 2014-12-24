@@ -51,7 +51,7 @@ public class User extends Model
         .add("Firstname", firstname)
         .add("Lastname", lastname)
         .add("Email", email)
-        .add("Passwrod", password).toString();
+        .add("Password", password).toString();
   }
 
   @Override
