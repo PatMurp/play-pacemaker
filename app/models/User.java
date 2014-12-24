@@ -96,4 +96,17 @@ public class User extends Model
   public static Model.Finder<String, User> find = new Model.Finder<String, User>(String.class, User.class);
   
   
+  /**
+   * Authenticate user email and password
+   * @param email
+   * @param password
+   * @return
+   */
+  public static User authenticate(String email, String password)
+  {
+    return find.where()
+        .eq("email", email)
+        .eq("password", password)
+        .findUnique();
+  }
 }

@@ -44,3 +44,8 @@ a {
     border-radius: 0px;
     border-bottom: 0px !important;
 }
+
+.error {
+	color: red;
+	font-weight: bold;
+}

@@ -9,7 +9,7 @@ import views.html.*;
 public class Accounts extends Controller
 {
   private static final Form<User> userForm = Form.form(User.class);
-  private static final Form<User> loginForm = Form.form(User.class);
+  
 
   public static Result index()
   {
@@ -23,7 +23,7 @@ public class Accounts extends Controller
   
   public static Result login()
   {
-    return ok(accounts_login.render());
+    return ok(accounts_login.render(Form.form(Login.class)));
   }
   
   public static Result logout()
@@ -35,9 +35,9 @@ public class Accounts extends Controller
   public static Result register()
   {
     Form<User> boundForm = userForm.bindFromRequest();
-    if(loginForm.hasErrors())
+    if(userForm.hasErrors())
     {
-      return badRequest(accounts_login.render());
+      return badRequest();
     }
     else
     {
@@ -50,25 +50,41 @@ public class Accounts extends Controller
   
   public static Result authenticate() 
   {
-    Form<User> boundForm = loginForm.bindFromRequest();
-    if(loginForm.hasErrors()) 
+    Form<Login> loginForms = Form.form(Login.class).bindFromRequest();
+    if (loginForms.hasErrors())
     {
-      return badRequest(accounts_login.render());
-    } 
-    else 
-    {
-       session("email", boundForm.get().email);
-       return redirect(routes.Dashboard.index());
+      return badRequest(accounts_login.render(loginForms));
     }
+    else
+    {
+      session().clear();
+      session("email", loginForms.get().email);
+      return redirect(routes.Dashboard.index());
+    }
+
   }
   
-//  public String validate()
-//  {
-//    if (authenticate(User.email, User.password) == null)
-//    {
-//      return "Invalid email or password";
-//    }
-//    return null;
-//  }
+  /**
+   * inner static login class
+   *
+   */
+  public static class Login
+  {
+    public String email;
+    public String password;
+    
+    /**
+     * @return error messager or null
+     */
+    public String validate()
+    {
+      if(User.authenticate(email, password) == null)
+      {
+        return "Invalid user or password";
+      }
+      return null;
+    }
+  }
+
   
 }
