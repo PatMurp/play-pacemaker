@@ -29,7 +29,8 @@ public class Accounts extends Controller
   public static Result logout()
   {
     session().clear();
-    return ok(welcome_main.render());
+    flash("success", "You have sucessfully logged out");
+    return redirect(routes.Accounts.index());
   }
   
   public static Result register()

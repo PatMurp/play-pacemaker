@@ -45,7 +45,15 @@ a {
     border-bottom: 0px !important;
 }
 
+/* validation error message style*/
 .error {
 	color: red;
+	font-weight: bold;
+}
+
+
+/* flash message style*/
+.success {
+	color: green;
 	font-weight: bold;
 }

@@ -9,6 +9,11 @@
 			<img src="@routes.Assets.at("images/gymnast_green.png")" class="ui medium image">
 		</div>
 		<div class="small-6 large-8 columns">
+			@if(flash.contains("success")) {
+				    <p class="success">
+				        @flash.get("success")
+				    </p>
+				}
 			<h1> Sign up for Pacemaker</h1>
 			<p>No Bitcoins accepted! </p>
 		</div>
