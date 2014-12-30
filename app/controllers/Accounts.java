@@ -81,7 +81,7 @@ public class Accounts extends Controller
     {
       if(User.authenticate(email, password) == null)
       {
-        return "Invalid user or password";
+        return "Invalid email or password";
       }
       return null;
     }

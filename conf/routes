@@ -13,6 +13,7 @@ POST    /authenticate               controllers.Accounts.authenticate()
 GET     /dashboard                  controllers.Dashboard.index()
 GET     /upload		                  controllers.Dashboard.uploadActivityForm()
 POST		/submitactivity							controllers.Dashboard.submitActivity()
+GET			/bmi												controllers.Dashboard.bmiCalculate()
 
 #API
 GET     /api/users                  controllers.PacemakerAPI.users()

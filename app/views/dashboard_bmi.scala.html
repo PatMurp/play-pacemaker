@@ -1,0 +1,61 @@
+@main("Calculate BMI") {
+	@dashboard_menu()
+	
+	<div class="row">
+		<div class="large-12 colums text-center">
+			<h1>BMI Calculator</h1>
+		</div>
+		<form name="frm" onsubmit="return false">
+			<fieldset>
+			
+				<div class="row">
+					<div class="small-3 columns">
+						<label for="right-label">Height:</label>
+					</div>
+					<div class="small-3 columns">
+						<input type="number" name="height">
+					</div>
+					<div class="small-3 columns">
+						<select name="opHeight">
+							<option value="Meter">Meter</option>
+							<option value="Cm">Centimetre</option>
+							<option value="Inch">Inch</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="small-3 columns">
+						<label for="right-label">Weight:</label>
+					</div>
+					<div class="small-3 columns">
+						<input type="number" name="weight">
+					</div>
+					<div class="small-3 columns">
+						<select name="opWeight">
+							<option value="Kg">Kilogram</option>
+							<option value="Lb">Pound</option>
+						</select>
+					</div>
+				</div>
+				<div class="text-center">
+					<input onClick="bmi()" type="button" value="Calculate" class="button small border-radius-bottom">
+					<input onCLick="resetAll()" type="reset" value="Reset" class="button  info small border-radius-bottom">
+				</div>
+			</fieldset>
+			<div class="text-center">
+			<h3 id="feedback"></h3>@* Display BMI value *@
+			<h3 id="answerOut"></h3>@* Display BMI clsssification *@
+		</div>
+		</form>
+		<p>
+			Body Mass Index (BMI) is a simple index of weight-for-height that is used to classify underweight, overweight
+			and obesity in adults. It does have some limits.
+			<ul>
+				<li>It may overestimate body fat in athletes and others with a muscular build.</li>
+				<li>It may underestimate body fat in older persons and others who have lost muscle.</li>
+			</ul>
+		</p>
+		
+	</div>
+}
