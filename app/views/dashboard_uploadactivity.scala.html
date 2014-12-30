@@ -10,10 +10,19 @@
 				<form action="/submitactivity" method="POST">
 					<div class="large-12 columns text-center">
 						<h3 class="text-center">Enter Activity Details:</h3>
-				    <input type="text" placeholder="Activity type:" class="no-radius" name="kind" required/>
+						<label>Please select an activity</label>
+						<select name="kind" required>
+							<option></option>
+							<option value="walking">Walking</option>
+							<option value="cycling">Cycling</option>
+							<option value="hiking">Hiking</option>
+							<option value="swimming">Swimming</option>
+							<option value="rowing">Rowing</option>
+						</select>
+						
 				    <input type="text" placeholder="Activity location:" class="no-radius" name="location" required/>
 				    @* no minus numbers, minimum value is 100 metres*@
-				    <input type="number" placeholder="Distance in km: Min value = 0.1:" class="no-radius" name="distance" min="0.1" required/>
+				    <input type="number" min="0" placeholder="Distance in km:" class="no-radius" name="distance"  required/>
 				    <button  class="button small border-radius-bottom" style="width: 100%">Upload Activity</button>
 					 </div>
 				</form>
