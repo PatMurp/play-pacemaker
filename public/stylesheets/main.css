@@ -15,7 +15,7 @@ a {
 /*login & signup styling*/
 
 #login input[type="text"], #login input[type="password"], #login input[type="email"],
-#login input[type="number"], select{
+#login input[type="number"], #login select{
     margin: 0px;
     height: 50px;
 }

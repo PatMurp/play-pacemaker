@@ -18,6 +18,13 @@ public class Dashboard extends Controller
     return ok(dashboard_main.render(user.activities));
   }
   
+  public static Result report()
+  {
+    String email = session().get("email");
+    User user = User.findByEmail(email);
+    return ok(dashboard_report.render(user.activities));
+  }
+  
   public static Result uploadActivityForm()
   {
     return ok(dashboard_uploadactivity.render());
