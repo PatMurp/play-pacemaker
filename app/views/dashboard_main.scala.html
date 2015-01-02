@@ -3,6 +3,11 @@
 @main("Dashboard") {
 	@dashboard_menu()
     
+ <script class="init">
+	$(document).ready(function() {
+	$('#userActivities').dataTable();
+	} );
+	</script>
  
   <div class="row">
 		<div class="small-2 large-4 columns">
@@ -10,7 +15,7 @@
 		</div>
 		<div class="small-6 large-8 columns">
 			<h2>Activities</h2>
-			<table>
+			<table id="userActivities" class="display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
 						<th width="150">Type</th>
@@ -18,6 +23,13 @@
             <th width="150">Distance Km</th>
 					</tr>
 				</thead>
+				<tfoot>
+					<tr>
+						<th width="150">Type</th>
+            <th width="150">Location</th>
+            <th width="150">Distance Km</th>
+					</tr>
+				</foot>
 				<tbody>
 					@for(i <- 0 until activities.size) {
 					<tr>

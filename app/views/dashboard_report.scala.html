@@ -3,6 +3,30 @@
 @main("Dashboard") {
 	@dashboard_menu()
 	
-	<h1>Test page</h1>
+	
+	
+	<div class="row">
+		<div class="small-6 large-8 columns">
+			<h2>Activities List</h2>
+			<table>
+				<thead>
+					<tr>
+						<th width="150">Type</th>
+            <th width="150">Location</th>
+            <th width="150">Distance Km</th>
+					</tr>
+				</thead>
+				<tbody>
+					@for(i <- 0 until activities.size) {
+					<tr>
+						<td> @activities(i).kind </td> 
+	          <td> @activities(i).location </td> 
+	          <td> @activities(i).distance </td>
+					</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
 	
 }
