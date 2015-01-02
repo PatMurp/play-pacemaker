@@ -51,6 +51,7 @@ public class Dashboard extends Controller
 
     user.activities.add(activity);
     user.save();
+    flash("success", "You added an activity: " + activity.kind + " in " + activity.location);
     return redirect (routes.Dashboard.index());
   }
 }

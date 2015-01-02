@@ -10,6 +10,12 @@
 	</script>
  
   <div class="row">
+  	@if(flash.contains("success")) {
+				    <div data-alert class="alert-box success radius">
+				        @flash.get("success")
+				        <a href="#" class="close">&times;</a>
+				    </div>
+		}
 		<div class="small-2 large-4 columns">
 			<img src="@routes.Assets.at("images/gymnast_green.png")" class="ui medium image">
 		</div>
