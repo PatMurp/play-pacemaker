@@ -8,7 +8,10 @@
   var uid = $('#usersID').attr("value");
   console.log(uid);
   
-  
+  $.get(
+		  "http://localhost:9000/api/users/" + uid + "/activities",
+		  function(data) { alert(data); },
+	);
   </script>
 	
 	<script type="text/javascript">
@@ -62,8 +65,10 @@
 	<div class="row">
 	<br>
 		<div id="chartContainer" style="height: 300px; width: 100%;">
-		</div>
-		<div class="small-6 large-8 columns">
+		</div><br>
+		<button id="show">Show Activities Table</button>
+    <button id="hide">Hide Activities Table</button><br>
+		<div id="viewHide" class="small-6 large-8 columns">
 			<h2>@user.firstname's Activities List</h2>
 			<table>
 				<thead>

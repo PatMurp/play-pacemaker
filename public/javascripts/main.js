@@ -89,3 +89,15 @@ function resetAll() {
 	document.getElementById('answerOut').innerHTML = "";
 	return true;
 }
+
+// Show and hide activity table on report page
+$(function() {
+    $("#show").click(function() {
+        $("#viewHide").show(function() {
+        });
+    });
+    $("#hide").click(function() {
+        $("#viewHide").hide("normal");
+    });
+   
+});
