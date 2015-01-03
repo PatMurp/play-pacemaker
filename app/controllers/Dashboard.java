@@ -15,14 +15,14 @@ public class Dashboard extends Controller
   {
     String email = session().get("email");
     User user = User.findByEmail(email);
-    return ok(dashboard_main.render(user.activities));
+    return ok(dashboard_main.render(user.activities, user));
   }
   
   public static Result report()
   {
     String email = session().get("email");
     User user = User.findByEmail(email);
-    return ok(dashboard_report.render(user.activities));
+    return ok(dashboard_report.render(user.activities, user));
   }
   
   public static Result uploadActivityForm()

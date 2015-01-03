@@ -1,13 +1,70 @@
-@(activities: List[Activity])
+@(activities: List[Activity], user: User)
 
 @main("Dashboard") {
 	@dashboard_menu()
 	
+	<input type="hidden" value="@user.id" id='usersID'>@* hidden field to get user id *@
+  <script>
+  var uid = $('#usersID').attr("value");
+  console.log(uid);
+  
+  
+  </script>
 	
+	<script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+
+      title:{
+      text: "Activity Distance Tracker"
+      },
+       data: [
+      {
+        type: "line",
+        name: "walking",
+        showInLegend: true,
+
+         dataPoints: [
+        { x: new Date(2012, 00, 1), y: 450 },
+        { x: new Date(2012, 01, 1), y: 414 },
+        { x: new Date(2012, 02, 1), y: 520 },
+        { x: new Date(2012, 03, 1), y: 460 },
+        { x: new Date(2012, 04, 1), y: 450 }
+        
+        ]
+      },
+
+      {
+        type: "line",
+        name: "cycling",
+        showInLegend: true,
+
+         dataPoints: [
+        { x: new Date(2012, 00, 1), y: 420 },
+        { x: new Date(2012, 01, 1), y: 425 },
+        { x: new Date(2012, 02, 1), y: 510 },
+        { x: new Date(2012, 03, 1), y: 480 },
+        { x: new Date(2012, 04, 1), y: 435 }
+        
+        ]
+      }
+
+
+      ]
+    });
+
+      chart.render();
+  }
+  </script>
+  
 	
 	<div class="row">
+	<br>
+		<div id="chartContainer" style="height: 300px; width: 100%;">
+		</div>
 		<div class="small-6 large-8 columns">
-			<h2>Activities List</h2>
+			<h2>@user.firstname's Activities List</h2>
 			<table>
 				<thead>
 					<tr>
@@ -28,6 +85,7 @@
 					}
 				</tbody>
 			</table>
+			
 		</div>
 	</div>
 	
