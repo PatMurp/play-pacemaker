@@ -3,6 +3,23 @@
 @main("Upload activity") {
 	@dashboard_menu()
    
+   <script type="text/javascript">
+    var datefield=document.createElement("input")
+    datefield.setAttribute("type", "date")
+    if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+        document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
+    }
+</script>
+ 
+<script>
+if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+    jQuery(function($){ //on document.ready
+        $('#activityDate').datepicker();
+    })
+}
+</script>
  
 	<div class="main">
 		<div class="wrapper">
@@ -21,8 +38,8 @@
 						</select>
 						
 				    <input type="text" placeholder="Activity location:" class="no-radius" name="location" required/>
-				    @* no minus numbers, minimum value is 100 metres*@
 				    <input type="number" min="0" placeholder="Distance in km:" class="no-radius" name="distance"  required/>
+				    <input type="date" name="date" id="activityDate" placeholder="Activity date:" required>
 				    <button  class="button small border-radius-bottom" style="width: 100%">Upload Activity</button>
 					 </div>
 				</form>

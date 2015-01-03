@@ -9,6 +9,7 @@ create table activity (
   kind                      varchar(255),
   location                  varchar(255),
   distance                  float,
+  date                      varchar(255),
   constraint pk_activity primary key (id))
 ;
 

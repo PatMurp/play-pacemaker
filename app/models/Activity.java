@@ -19,17 +19,19 @@ public class Activity extends Model
   public String kind;
   public String location;
   public double distance;
+  public String date;
 
   
   public Activity()
   {
   }
 
-  public Activity(String type, String location, double distance)
+  public Activity(String type, String location, double distance, String date)
   {
     this.kind = type;
     this.location = location;
     this.distance = distance;
+    this.date = date;
   }
   
 //  public void update (Activity activity)
@@ -45,6 +47,7 @@ public class Activity extends Model
                                        .addValue(kind)
                                        .addValue(location)
                                        .addValue(distance)
+                                       .addValue(date)
                                        .toString();
   }
   
@@ -56,7 +59,8 @@ public class Activity extends Model
       final Activity other = (Activity) obj;
       return Objects.equal(kind, other.kind)
           && Objects.equal(location, other.location)
-          && Objects.equal(distance, other.distance);
+          && Objects.equal(distance, other.distance)
+          && Objects.equal(date, other.date);
     }
     else
     {
@@ -67,7 +71,7 @@ public class Activity extends Model
   @Override  
   public int hashCode()  
   {  
-     return Objects.hashCode(this.id, this.kind, this.location, this.distance);  
+     return Objects.hashCode(this.id, this.kind, this.location, this.distance, this.date);  
   }
   
   public static Activity findById(Long id)
