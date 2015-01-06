@@ -5,70 +5,85 @@
 	
 	<input type="hidden" value="@user.id" id='usersID'>@* hidden field to get user id *@
   <script>
+	
+	// find logged in user id
   var uid = $('#usersID').attr("value");
-  console.log(uid);
+ 
+	// construct api url
+  //var url = "http://localhost:9000/api/users/" + uid + "/activities";
+	var url = "play-pacemaker.herokuapp.com/api/users/" + uid + "/activities";
+	
+	// get activity data using rest api
+	$(document).ready(function () {
+		$.ajax({
+			url:url,
+			dataType: 'json',
+			success: function(data) {
+				
+				// create empty array
+				var dateDistance_data = [];
+				
+				// convert json array to array of objects, date & distance
+				$.map(data, function(obj, i) {
+					dateDistance_data.push([obj.date, parseInt(obj.distance)]);
+				});
+				
+				// create highchart
+				$('#chartContainer').highcharts({
+					chart: {
+						type: 'line',
+						marginRight: 130,
+						marginBotom: 25
+					},
+					title: {
+						text: 'Activity Distances'
+					},
+					xAxis: {
+						type: 'category'
+					},
+					yAxis: {
+						title: {
+							text: 'Distance Km'
+						},
+						plotLines: [{
+	              value: 0,
+	              width: 1,
+	              color: '#808080'
+	          }]
+					},
+					legend: {
+						layout: 'vertical',
+						align: 'right',
+						x: -10,
+						y: 100,
+						borderWidth: 0
+					},
+					series: [{
+						name: 'distance: ',
+						data: dateDistance_data
+					}]
+				});
+			}
+		});
+	});
   
-  $.get(
-		  "http://localhost:9000/api/users/" + uid + "/activities",
-		  function(data) { alert(data); },
-	);
+
+
   </script>
 	
-	<script type="text/javascript">
-  window.onload = function () {
-    var chart = new CanvasJS.Chart("chartContainer",
-    {
 
-      title:{
-      text: "Activity Distance Tracker"
-      },
-       data: [
-      {
-        type: "line",
-        name: "walking",
-        showInLegend: true,
-
-         dataPoints: [
-        { x: new Date(2012, 00, 1), y: 450 },
-        { x: new Date(2012, 01, 1), y: 414 },
-        { x: new Date(2012, 02, 1), y: 520 },
-        { x: new Date(2012, 03, 1), y: 460 },
-        { x: new Date(2012, 04, 1), y: 450 }
-        
-        ]
-      },
-
-      {
-        type: "line",
-        name: "cycling",
-        showInLegend: true,
-
-         dataPoints: [
-        { x: new Date(2012, 00, 1), y: 420 },
-        { x: new Date(2012, 01, 1), y: 425 },
-        { x: new Date(2012, 02, 1), y: 510 },
-        { x: new Date(2012, 03, 1), y: 480 },
-        { x: new Date(2012, 04, 1), y: 435 }
-        
-        ]
-      }
-
-
-      ]
-    });
-
-      chart.render();
-  }
-  </script>
   
 	
 	<div class="row">
 	<br>
-		<div id="chartContainer" style="height: 300px; width: 100%;">
+		<div id="chartContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		
 		</div><br>
-		<button id="show">Show Activities Table</button>
-    <button id="hide">Hide Activities Table</button><br>
-		<div id="viewHide" class="small-6 large-8 columns">
+		<div class="text-center">
+			<button id="show" class="button success radius">View All Activities</button>
+	    <button id="hide" class="button radius">Hide Activities</button>
+    </div><br>
+		<div id="viewHide" class="small-6 large-8 columns" hidden="true">
 			<h2>@user.firstname's Activities List</h2>
 			<table>
 				<thead>
