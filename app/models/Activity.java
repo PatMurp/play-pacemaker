@@ -20,18 +20,20 @@ public class Activity extends Model
   public String location;
   public double distance;
   public String date;
+  public double duration;
 
   
   public Activity()
   {
   }
 
-  public Activity(String type, String location, double distance, String date)
+  public Activity(String type, String location, double distance, String date, double duration)
   {
     this.kind = type;
     this.location = location;
     this.distance = distance;
     this.date = date;
+    this.duration = duration;
   }
   
 //  public void update (Activity activity)
@@ -48,6 +50,7 @@ public class Activity extends Model
                                        .addValue(location)
                                        .addValue(distance)
                                        .addValue(date)
+                                       .addValue(duration)
                                        .toString();
   }
   
@@ -60,7 +63,8 @@ public class Activity extends Model
       return Objects.equal(kind, other.kind)
           && Objects.equal(location, other.location)
           && Objects.equal(distance, other.distance)
-          && Objects.equal(date, other.date);
+          && Objects.equal(date, other.date)
+          && Objects.equal(duration, other.duration);
     }
     else
     {

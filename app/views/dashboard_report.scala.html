@@ -23,15 +23,16 @@
 				// create empty array
 				var dateDistance_data = [];
 				
+				
 				// convert json array to array of objects, date & distance
 				$.map(data, function(obj, i) {
-					dateDistance_data.push([obj.date, parseInt(obj.distance)]);
+					dateDistance_data.push([obj.date, obj.distance]);
 				});
 				
 				// create highchart
 				$('#chartContainer').highcharts({
 					chart: {
-						type: 'line',
+						type: 'column',
 						marginRight: 130,
 						marginBotom: 25
 					},
@@ -59,16 +60,13 @@
 						borderWidth: 0
 					},
 					series: [{
-						name: 'distance: ',
+						name: 'distance',
 						data: dateDistance_data
 					}]
 				});
 			}
 		});
 	});
-  
-
-
   </script>
 	
 
@@ -76,7 +74,7 @@
 	
 	<div class="row">
 	<br>
-		<div id="chartContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		<div id="chartContainer" style="min-width: 310px; height: 350px; margin: 0 auto"></div>
 		
 		</div><br>
 		<div class="text-center">
@@ -92,6 +90,7 @@
             <th width="150">Location</th>
             <th width="150">Distance Km</th>
             <th width="100">Date</th>
+            <th width="150">Duration minutes</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -101,6 +100,7 @@
 	          <td> @activities(i).location </td> 
 	          <td> @activities(i).distance </td>
 	          <td> @activities(i).date </td>
+	          <td> @activities(i).duration </td>
 					</tr>
 					}
 				</tbody>
