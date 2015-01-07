@@ -2,6 +2,7 @@ body {
     font-family: 'Roboto', 'sans-serif';
     color: #656C70;
     background-color: #f3f3f3;
+    height: 100%;
 }
 
 a {
@@ -12,7 +13,30 @@ a {
     border: 1px solid #e1e1e1;
 }
 
-/*login & signup styling*/
+.main {
+	height: 100%;
+	width: 100%;
+	display: table;
+}
+
+.wrapper {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#login {
+	width: 30%;
+}
+
+@media all and (max-width:800px) {
+	#login {
+		width: 90%;
+	}
+}
+
+
+/*login, signup & add activity styling */
 
 #login input[type="text"], #login input[type="password"], #login input[type="email"],
 #login input[type="number"], #login select, #login input[type="date"]{
@@ -56,4 +80,15 @@ a {
 .success {
 	color: green;
 	font-weight: bold;
+}
+
+fieldset
+{ 
+	border: solid 1px #080808;
+	background-color: #E9F5F5;
+}
+
+.bottomElement {
+  position: absolute;
+  bottom: 0px;
 }
