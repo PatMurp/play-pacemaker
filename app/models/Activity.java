@@ -84,4 +84,5 @@ public class Activity extends Model
   }
   
   public static Model.Finder<String, Activity> find = new Model.Finder<String, Activity>(String.class, Activity.class);
+  
 }

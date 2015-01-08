@@ -16,7 +16,6 @@ POST		/submitactivity							controllers.Dashboard.submitActivity()
 GET			/bmi												controllers.Dashboard.bmiCalculate()
 GET			/report											controllers.Dashboard.report()
 
-
 #API
 GET     /api/users                  controllers.PacemakerAPI.users()
 DELETE  /api/users                  controllers.PacemakerAPI.deleteAllUsers()

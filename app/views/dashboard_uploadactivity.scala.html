@@ -3,7 +3,7 @@
 @main("Upload activity") {
 	@dashboard_menu()
    
-   <script type="text/javascript">
+ <script type="text/javascript">
     var datefield=document.createElement("input")
     datefield.setAttribute("type", "date")
     if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
@@ -41,7 +41,7 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 				    <input type="text" placeholder="Activity location:" class="no-radius" name="location" required/>
 				    <input type="number" min="0" placeholder="Distance in km:" class="no-radius" name="distance"  required/>
 				    <input type="date" name="date" id="activityDate" placeholder="Activity date:" required>
-				    <input type="number" min="0" placeholder="Duration minutes:" class="no-radius" name="duration"  required/>
+				    <input type="number" min="0" placeholder="Duration minutes:" class="no-radius" step="5" name="duration"  required/>
 				    <button  class="button small border-radius-bottom" style="width: 100%">Upload Activity</button>
 					 </div>
 				</form>

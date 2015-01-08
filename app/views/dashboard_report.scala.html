@@ -26,9 +26,9 @@
 				
 				// convert json array to array of objects, date & distance
 				$.map(data, function(obj, i) {
-					dateDistance_data.push([obj.date, obj.distance]);
+					dateDistance_data.push([obj.date, obj.distance, obj.kind]);
 				});
-				
+				console.log(dateDistance_data);
 				// reverse so that latest data appears to right of chart
 				dateDistance_data = dateDistance_data.reverse();
 				
@@ -62,13 +62,6 @@
 	              width: 1,
 	              color: '#808080'
 	          }]
-					},
-					legend: {
-						layout: 'vertical',
-						align: 'right',
-						x: -10,
-						y: 100,
-						borderWidth: 0
 					},
 					series: [{
 						name: 'distance',
@@ -128,7 +121,7 @@
 			<button id="show" class="button success radius">View All Activities</button>
 	    <button id="hide" class="button radius">Hide Activities</button>
     </div><br>
-		<div id="viewHide" class="small-6 large-8 columns" hidden="true">
+		<div id="viewHide" class="small-7 large-9 columns" hidden="true">
 			<h2>@user.firstname's Activities List</h2>
 			<table>
 				<thead>
@@ -138,7 +131,6 @@
             <th width="150">Distance Km</th>
             <th width="100">Date</th>
             <th width="150">Duration minutes</th>
-					</tr>
 				</thead>
 				<tbody>
 					@for(i <- 0 until activities.size) {

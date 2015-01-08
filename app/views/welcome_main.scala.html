@@ -10,11 +10,14 @@
 		</div>
 		<div class="small-6 large-8 columns">
 			
-				    <p class="success">
+				    
 				    @if(flash.contains("success")) {
+				    	<div data-alert class="alert-box success radius">
 				        @flash.get("success")
+				        <a href="#" class="close">&times;</a>
+				      </div>
 				    }
-				    </p>
+				    
 				
 			<h1> Sign up for Pacemaker</h1>
 			<p>No Bitcoins accepted! </p>

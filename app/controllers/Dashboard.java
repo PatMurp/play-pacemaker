@@ -6,6 +6,7 @@ import play.data.Form;
 import play.mvc.*;
 import views.html.*;
 
+// if a user is not logged in redirected to login page
 @Security.Authenticated(Secured.class)
 public class Dashboard extends Controller
 {
