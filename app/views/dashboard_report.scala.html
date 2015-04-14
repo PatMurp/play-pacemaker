@@ -10,8 +10,8 @@
   var uid = $('#usersID').attr("value");
  
 	// construct api url
-  //var url = "http://localhost:9000/api/users/" + uid + "/activities";
-	var url = "/api/users/" + uid + "/activities";
+  var url = "http://localhost:9000/api/users/" + uid + "/activities";
+	//var url = "/api/users/" + uid + "/activities";
 	
 	// get activity data using rest api
 	$(document).ready(function () {
@@ -28,7 +28,7 @@
 				$.map(data, function(obj, i) {
 					dateDistance_data.push([obj.date, obj.distance, obj.kind]);
 				});
-				console.log(dateDistance_data);
+				
 				// reverse so that latest data appears to right of chart
 				dateDistance_data = dateDistance_data.reverse();
 				
